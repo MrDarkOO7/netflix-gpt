@@ -2,6 +2,9 @@
 
 - Create-react-app
 - Configured Tailwind CSS
+- Header
+- Signin Form
+- Signup Form
 
 # Features
 
@@ -17,3 +20,8 @@
     - Title and description
     - Movie Suggestions
       - Movies list
+
+-Netflix GPT
+
+- Search Bar
+- Movie Sugggestions

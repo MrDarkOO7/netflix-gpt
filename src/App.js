@@ -1,7 +1,7 @@
-import "./App.css";
+import Body from "./components/Body";
 
 function App() {
-  return <div className="App">Helloooooooooo netflix walio</div>;
+  return <Body />;
 }
 
 export default App;
