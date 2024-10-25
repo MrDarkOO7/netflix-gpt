@@ -16,6 +16,9 @@
 - implemented signout
 - Update profile
 - Fetch from TMDB movies
+- harcoded values in constant files
+- register tmdb api and create an app and get access token
+- get access of now playing movies list api from tmdb
 
 # Features
 
