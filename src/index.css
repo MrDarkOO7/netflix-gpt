@@ -14,3 +14,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+/* Custom class for a thin, semi-transparent scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px; /* Makes scrollbar thinner */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4); /* Light grey, semi-transparent scrollbar thumb */
+  border-radius: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin; /* Thinner scrollbar for Firefox */
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent; /* Thumb and track color in Firefox */
+}
+
