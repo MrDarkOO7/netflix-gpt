@@ -5,14 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
-// import { toggleGptSearchView } from "../utils/gptSlice";
+import { toggleGptSearchView } from "../utils/gptSlice";
 // import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const user = useSelector((store) => store.user);
-  // const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
@@ -43,6 +45,11 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptSearchClick = () => {
+    // Toggle GPT Search
+    dispatch(toggleGptSearchView());
+  };
+
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
       {/* <img
@@ -71,6 +78,12 @@ const Header = () => {
           >
             {showGptSearch ? "Homepage" : "GPT Search"}
           </button> */}
+          <button
+            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+            onClick={handleGptSearchClick}
+          >
+            {showGptSearch ? "Homepage" : "GPT Search"}
+          </button>
           <img
             className="hidden md:block w-12 h-12"
             alt="usericon"
