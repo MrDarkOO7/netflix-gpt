@@ -20,7 +20,7 @@ export const BG_URL =
 
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
-  { identifier: "hindi", name: "Hindi" },
+  { identifier: "urdu", name: "Urdu" },
   { identifier: "spanish", name: "Spanish" },
 ];
 
