@@ -23,7 +23,7 @@ const useMovieTrailer = (movieId) => {
   };
   useEffect(() => {
     !trailerVideo && getMovieVideos();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 export default useMovieTrailer;
