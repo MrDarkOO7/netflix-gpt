@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResult } from "../utils/gptSlice";
 import lang from "../utils/languageConstants";
-import openai from "../utils/openai";
+// import openai from "../utils/openai";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -25,38 +25,39 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
+    alert("OpenAI key expired");
     console.log(searchText.current.value);
 
-    const gptQuery =
-      "Act as a Movie Recommendation system and suggest some movies for the query : " +
-      searchText.current.value +
-      ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
+    // const gptQuery =
+    //   "Act as a Movie Recommendation system and suggest some movies for the query : " +
+    //   searchText.current.value +
+    //   ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
 
-    const gptResults = await openai.completions.create({
-      model: "gpt-3.5-turbo",
-      prompt: gptQuery,
-      max_tokens: 6,
-      temperature: 0,
-    });
+    // const gptResults = await openai.completions.create({
+    //   model: "gpt-3.5-turbo",
+    //   prompt: gptQuery,
+    //   max_tokens: 6,
+    //   temperature: 0,
+    // });
 
-    if (!gptResults.choices) {
-      // TODO: Write Error Handling
-    }
+    // if (!gptResults.choices) {
+    //   // TODO: Write Error Handling
+    // }
 
-    console.log(gptResults.choices?.[0]?.message?.content);
+    // console.log(gptResults.choices?.[0]?.message?.content);
 
-    const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
+    // const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
 
-    const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
+    // const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
 
-    // [Promise, Promise, Promise, Promise, Promise]
-    const tmdbResults = await Promise.all(promiseArray);
+    // // [Promise, Promise, Promise, Promise, Promise]
+    // const tmdbResults = await Promise.all(promiseArray);
 
-    console.log(tmdbResults);
+    // console.log(tmdbResults);
 
-    dispatch(
-      addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
-    );
+    // dispatch(
+    //   addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+    // );
   };
 
   return (
